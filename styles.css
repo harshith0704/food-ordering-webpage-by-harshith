@@ -1,0 +1,193 @@
+:root {
+    --primary-color: #ff2f00;
+    --secondary-color: #ffc107;
+    --text-color: #333;
+    --background-color: #fff;
+}
+
+body, html {
+    font-family: 'Californian FB';
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://cdn.pixabay.com/photo/2021/04/11/16/02/gradient-6170176_640.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover; 
+     
+}
+
+.container {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 60px; 
+    padding-bottom: 40px;
+    background: transparent;
+}
+
+.header {
+    background-color: white;
+    color: black;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px; 
+}
+
+.logo {
+    width: 200px;
+}
+
+.main-nav .nav-link {
+    color: #000; 
+    text-decoration: none;
+    padding: 10px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.menu-item {
+    background: #ffe5d0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.menu-item:hover {
+    transform: translateY(+5px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.menu-item h3 {
+    color: #321212; 
+    text-align: center;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: rgb(21, 20, 20);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: darken(var(--secondary-color), 10%);
+}
+
+.place-order-container {
+    text-align: center;
+    padding: 30px 30px;
+    background: transparent; 
+}
+
+#place-order-btn {
+    font-family: Bahnschrift SemiBold;
+    background-color: rgb(0, 201, 204);
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+#place-order-btn:hover {
+    background-color:rgb(0, 255, 4);
+}
+
+.order-form-container, .success-container {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fb9494;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.order-form-container input, .order-form-container button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.order-form-container button {
+    background-color: var(--secondary-color);
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.order-form-container button:hover {
+    background-color: darken(var(--secondary-color), 10%);
+}
+
+.success-container button {
+    background-color: rgb(254, 101, 46);
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.success-container button:hover {
+    background-color: darken rgb(255, 171, 140), 10%);
+}
+
+.footer {
+    background-color: rgb(0, 0, 0);
+    color: var(--background-color);
+    text-align: center;
+    width: 100%; 
+    position: fixed;
+    bottom: 0;
+    margin-top: auto;
+    left: 0;
+    top: -14px;
+    height: 50px; 
+}

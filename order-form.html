@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="order-form-container">
+        <h1>Order Form</h1>
+        <form id="order-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <h2>Order Summary</h2>
+            <div id="order-summary"></div>
+            
+            <button type="button" id="confirm-order-btn">Confirm Order</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderSummary = document.getElementById('order-summary');
+            const confirmOrderBtn = document.getElementById('confirm-order-btn');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalAmount = 0;
+            cart.forEach(item => {
+                totalAmount += item.totalPrice;
+                orderSummary.innerHTML += `<p>${item.item} - ₹${item.totalPrice.toFixed(2)}</p>`;
+            });
+            orderSummary.innerHTML += `<p><strong>Total: ₹${totalAmount.toFixed(2)}</strong></p>`;
+            confirmOrderBtn.addEventListener('click', () => {
+                const name = document.getElementById('name').value;
+                const address = document.getElementById('address').value;
+                
+                if (name && address) {
+                    localStorage.removeItem('cart');
+                    localStorage.setItem('orderDetails', JSON.stringify({ name, address, totalAmount }));
+                    window.location.href = 'success.html';
+                } else {
+                    alert('Please fill in all fields.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

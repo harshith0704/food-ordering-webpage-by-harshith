@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQOxnQ5RorTidDwbD-ZJxP2k9jiQFDkQmJVA&s" alt="Logo" class="logo">
+            <nav class="main-nav">
+                <a href="index.html" id="home-link" class="nav-link">Home</a>
+                <a href="#" id="contact-link" class="nav-link">Contact</a>
+            </nav>
+        </header>
+        <section class="menu">
+            <article class="menu-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFb-QOETAw_2smnhPtCqsh8A1KTeBnpYEBTQ&s" alt="Pizza">
+                <h3>Pizza</h3>
+                <p>₹200.00</p>
+                <button onclick="addToCart('Pizza', 200)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://img.freepik.com/free-photo/front-view-tasty-meat-burger-with-cheese-salad-dark-background_140725-89597.jpg" alt="Burger">
+                <h3>Burger</h3>
+                <p>₹90.00</p>
+                <button onclick="addToCart('Burger', 90)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://th-i.thgim.com/public/incoming/rycbtc/article67895056.ece/alternates/FREE_1200/iStock-1334115358.jpg" alt="Manchurian">
+                <h3>Manchurian</h3>
+                <p>₹70.00</p>
+                <button onclick="addToCart('Manchurian', 70)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://www.loveandoliveoil.com/wp-content/uploads/2015/03/soy-sauce-noodlesH2.jpg" alt="Noodles">
+                <h3>Noodles</h3>
+                <p>₹70.00</p>
+                <button onclick="addToCart('Noodles', 70)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://www.thespruceeats.com/thmb/Ce9JRCp8CRy0TvjpOMG1_zzhrWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/terris-crispy-fried-chicken-legs-3056879-hero-01-db3cd6bfead040e6ad07528a162db843.jpg" alt="Fried Chicken">
+                <h3>Fried Chicken</h3>
+                <p>₹200.00</p>
+                <button onclick="addToCart('Fried Chicken', 200)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://www.madewithlau.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F2r0kdewr%2Fproduction%2F82f8a09e19a456b94077b31d23861a5b03905307-1000x667.jpg&w=3840&q=75" alt="Fried Rice">
+                <h3>Fried Rice</h3>
+                <p>₹60.00</p>
+                <button onclick="addToCart('Fried Rice', 60)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://i.pinimg.com/736x/29/a2/50/29a250fef4c1e5190dc14da037ca751f.jpg" alt="Chicken Biriyani">
+                <h3>Chicken Biriyani</h3>
+                <p>₹220.00</p>
+                <button onclick="addToCart('Chicken Biriyani', 220)">Add to Cart</button>
+            </article>
+            <article class="menu-item">
+                <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/7/2017/05/02162554/030517_Shawarma.jpg" alt="Shawarma">
+                <h3>Shawarma</h3>
+                <p>₹120.00</p>
+                <button onclick="addToCart('Shawarma', 120)">Add to Cart</button>
+            </article>
+        </section>
+        <div class="place-order-container">
+            <button id="place-order-btn">Place Your Order</button>
+        </div>
+        <footer class="footer">
+            <p>© Food Ordering Site</p>
+        </footer>
+    </div>
+    <script>
+        let cart = [];
+    
+        function addToCart(item, price) {
+            const existingItem = cart.find(cartItem => cartItem.item === item);
+            if (existingItem) {
+                existingItem.quantity += 1;
+                existingItem.totalPrice += price;
+            } else {
+                cart.push({ item, quantity: 1, totalPrice: price });
+            }
+            updateCart();
+        }
+    
+        function updateCart() {
+            let totalAmount = 0;
+            cart.forEach(cartItem => {
+                totalAmount += cartItem.totalPrice;
+            });
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    
+        document.getElementById('place-order-btn').addEventListener('click', () => {
+            if (cart.length > 0) {
+                window.location.href = 'order-form.html';
+            } else {
+                alert('Your cart is empty.');
+            }
+        });
+
+        document.getElementById('contact-link').addEventListener('click', function() {
+            alert('Name: Harshith\nContact Number: 9652482581');
+        });
+    </script>    
+</body>
+</html>

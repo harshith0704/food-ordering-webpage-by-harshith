@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "project"
+		},
+		{
+			"path": "images"
+		},
+		{
+			"path": "project/images"
+		}
+	],
+	"settings": {}
+}
